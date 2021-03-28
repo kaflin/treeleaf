@@ -4,6 +4,7 @@ import com.vts.treeleaf.Dto.CameraDto;
 import com.vts.treeleaf.Model.Camera;
 import com.vts.treeleaf.PDF.VehiclePDFExporter;
 import com.vts.treeleaf.Service.CameraService;
+import com.vts.treeleaf.ServiceImpl.CameraServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
