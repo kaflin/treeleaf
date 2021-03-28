@@ -2,8 +2,8 @@ package com.vts.treeleaf.Controller;
 
 import com.vts.treeleaf.Dto.LocationDto;
 import com.vts.treeleaf.Dto.LocationResponse;
-import com.vts.treeleaf.Dto.VehicleDto;
 import com.vts.treeleaf.Service.LocationService;
+import com.vts.treeleaf.ServiceImpl.LocationServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
