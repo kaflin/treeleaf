@@ -18,22 +18,27 @@ public class VehicleController {
 
     private final VehicleService vehicleService;
 
+    //For saving vehicle
     @PostMapping("/save")
     public ResponseEntity<VehicleDto> createVehicle(@RequestBody VehicleDto vehicleDto)
     {
       return ResponseEntity.status(HttpStatus.CREATED).body(vehicleService.save(vehicleDto));
     }
+// For getting All Vehicle
     @GetMapping("/all")
     public ResponseEntity<List<VehicleDto>> getAllVehicles()
     {
         return ResponseEntity
                 .status(HttpStatus.OK).body(vehicleService.getAllVehicles());
     }
+//    For Updating Vehicle
     @PutMapping("/save")
     public ResponseEntity<VehicleDto> updateVehicle(@RequestBody VehicleDto vehicleDto)
     {
         return ResponseEntity.status(HttpStatus.OK).body(vehicleService.save(vehicleDto));
     }
+
+    //For deleting Vehicle
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVehicle(@PathVariable Long id) {
         vehicleService.delete(id);

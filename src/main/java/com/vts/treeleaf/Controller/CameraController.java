@@ -23,6 +23,8 @@ import static org.springframework.http.ResponseEntity.status;
 public class CameraController {
     private final CameraService cameraService;
 
+
+    //For saving Camera
     @PostMapping("/save")
     public ResponseEntity<Void> createCamera(@RequestBody CameraDto cameraDto)
     {
@@ -30,21 +32,36 @@ public class CameraController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
+    //For getting All camera
     @GetMapping("/all")
     public ResponseEntity<List<CameraDto>>getAllCameras()
     {
         return status(HttpStatus.OK).body(cameraService.getAllCameras());
     }
+
+    //For Getting camera By vehicle and id
     @GetMapping("/cameraByVehicle/{id}")
     public ResponseEntity<List<CameraDto>> getCameraByVehicle(@PathVariable Long id)
     {
         return ResponseEntity.status(HttpStatus.OK).body(cameraService.getCameraByVehicle(id));
     }
+
+    //for Deleting Camera
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCamera(@PathVariable Long id) {
         cameraService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    //For Updating camera
+    @PutMapping("/save")
+    public ResponseEntity<Void> updateCamera(@RequestBody CameraDto cameraDto)
+    {
+        cameraService.save(cameraDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+
+    }
+    //For Getting Pdf
     @GetMapping("/export/pdf")
     public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
         response.setContentType("application/pdf");
